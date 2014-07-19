@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rake | ksnowlv]]></title>
+  <link href="http://kAirzhen.github.io/blog/categories/rake/atom.xml" rel="self"/>
+  <link href="http://kAirzhen.github.io/"/>
+  <updated>2014-07-19T15:50:45+08:00</updated>
+  <id>http://kAirzhen.github.io/</id>
+  <author>
+    <name><![CDATA[律威]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[rake-aborted]]></title>
+    <link href="http://kAirzhen.github.io/blog/2014/07/08/rake-aborted/"/>
+    <updated>2014-07-08T15:52:00+08:00</updated>
+    <id>http://kAirzhen.github.io/blog/2014/07/08/rake-aborted</id>
+    <content type="html"><![CDATA[<p><strong><strong>当时使用octopress生成网页时，报错如下</strong></strong>
+<img src="/images/post/2014-07-18-rake-aborted/rake-aborted-1.png"></p>
+
+<p><strong><strong>后来，直接把最新版本rake卸载即可。如下图:</strong></strong>
+<img src="/images/post/2014-07-18-rake-aborted/rake-aborted-2.png"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[rake 命令]]></title>
+    <link href="http://kAirzhen.github.io/blog/2014/07/08/rake-T/"/>
+    <updated>2014-07-08T15:52:00+08:00</updated>
+    <id>http://kAirzhen.github.io/blog/2014/07/08/rake-T</id>
+    <content type="html"><![CDATA[<p><code>
+rake clean                     # Clean out caches: .pygments-cache, .gist-c...
+rake copydot[source,dest]      # copy dot files for deployment
+rake deploy                    # Default deploy task
+rake gen_deploy                # Generate website and deploy
+rake generate                  # Generate jekyll site
+rake install[theme]            # Initial setup for Octopress: copies the de...
+rake integrate                 # Move all stashed posts back into the posts...
+rake isolate[filename]         # Move all other posts than the one currentl...
+rake list                      # list tasks
+rake new_page[filename]        # Create a new page in source/(filename)/ind...
+rake new_post[title]           # Begin a new post in source/_posts
+rake preview                   # preview the site in a web browser
+rake push                      # deploy public directory to github pages
+rake rsync                     # Deploy website via rsync
+rake set_root_dir[dir]         # Update configurations to support publishin...
+rake setup_github_pages[repo]  # Set up _deploy folder and deploy branch fo...
+rake update_source[theme]      # Move source to source.old, install source ...
+rake update_style[theme]       # Move sass to sass.old, install sass theme ...
+rake watch                     # Watch the site and regenerate when it changes
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
