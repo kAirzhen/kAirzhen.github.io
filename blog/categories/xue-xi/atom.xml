@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 学习 | kAir]]></title>
+  <link href="http://kAirzhen.github.io/blog/categories/xue-xi/atom.xml" rel="self"/>
+  <link href="http://kAirzhen.github.io/"/>
+  <updated>2014-07-19T16:28:20+08:00</updated>
+  <id>http://kAirzhen.github.io/</id>
+  <author>
+    <name><![CDATA[贞]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[hello]]></title>
+    <link href="http://kAirzhen.github.io/blog/2014/07/19/hello/"/>
+    <updated>2014-07-19T16:05:00+08:00</updated>
+    <id>http://kAirzhen.github.io/blog/2014/07/19/hello</id>
+    <content type="html"><![CDATA[<p>hello！
+<img src="/images/post/2014-07-19-rake-学习/rake-学习-mm.jpg"></p>
+]]></content>
+  </entry>
+  
+</feed>

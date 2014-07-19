@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[ksnowlv]]></title>
+  <title><![CDATA[kAir]]></title>
   <link href="http://kAirzhen.github.io/atom.xml" rel="self"/>
   <link href="http://kAirzhen.github.io/"/>
-  <updated>2014-07-19T15:50:45+08:00</updated>
+  <updated>2014-07-19T16:28:20+08:00</updated>
   <id>http://kAirzhen.github.io/</id>
   <author>
-    <name><![CDATA[律威]]></name>
+    <name><![CDATA[贞]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[back-to-beijing]]></title>
-    <link href="http://kAirzhen.github.io/blog/2014/07/18/back-to-beijing/"/>
-    <updated>2014-07-18T23:12:00+08:00</updated>
-    <id>http://kAirzhen.github.io/blog/2014/07/18/back-to-beijing</id>
-    <content type="html"><![CDATA[
+    <title type="html"><![CDATA[hello]]></title>
+    <link href="http://kAirzhen.github.io/blog/2014/07/19/hello/"/>
+    <updated>2014-07-19T16:05:00+08:00</updated>
+    <id>http://kAirzhen.github.io/blog/2014/07/19/hello</id>
+    <content type="html"><![CDATA[<p>hello！
+<img src="http://kAirzhen.github.io/images/post/2014-07-19-rake-学习/rake-学习-mm.jpg"></p>
 ]]></content>
   </entry>
   
@@ -78,32 +79,6 @@
 </span><span class='line'>rake update_source[theme]      # Move source to source.old, install source ...
 </span><span class='line'>rake update_style[theme]       # Move sass to sass.old, install sass theme ...
 </span><span class='line'>rake watch                     # Watch the site and regenerate when it changes</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[blog转移]]></title>
-    <link href="http://kAirzhen.github.io/blog/2014/07/07/hello_github/"/>
-    <updated>2014-07-07T21:35:00+08:00</updated>
-    <id>http://kAirzhen.github.io/blog/2014/07/07/hello_github</id>
-    <content type="html"><![CDATA[<p>   以前在QQ空间，网易上写博客，现在开始在github&amp;gitcafe上写博客:octopress+github|octopress+gitcafe，于是乎，记下这个时刻，见证这个新开始。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>积少成多，集腋成裘，坚持再坚持。</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[入职]]></title>
-    <link href="http://kAirzhen.github.io/blog/2011/08/10/go_to_tencent/"/>
-    <updated>2011-08-10T09:00:00+08:00</updated>
-    <id>http://kAirzhen.github.io/blog/2011/08/10/go_to_tencent</id>
-    <content type="html"><![CDATA[<p>早上9点入职，中午的时候，还没有办完入职手续，因为入职的人特别多，排队填写一堆东东，看样子要到下午了。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>今天记录下这个时刻。</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>
