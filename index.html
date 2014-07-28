@@ -10,12 +10,12 @@
 
   
   <meta name="description" content="layout: post
-title: &ldquo;CALayer和UIView&rdquo;
-date: 2014-07-22 23:49
+title: &ldquo;往本地文件系统写入用户注册信息的两种方法&rdquo;
+date: 2014-07-28 22:13
 comments: true
 categories:
-&mdash;-学习
-两者最大的区别是,图层不会直接渲染到屏幕上， &hellip;">
+&mdash;-往本地文件系统写入用户注册信息的两种方法
+&ndash;( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,112 @@ categories:
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/28/wang-ben-di-wen-jian-xi-tong-xie-ru-yong-hu-zhu-ce-xin-xi-de-liang-chong-fang-fa/">Wang Ben Di Wen Jian Xi Tong Xie Ru Yong Hu Zhu Ce Xin Xi De Liang Chong Fang Fa</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-28T00:00:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/07/28/wang-ben-di-wen-jian-xi-tong-xie-ru-yong-hu-zhu-ce-xin-xi-de-liang-chong-fang-fa/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><hr />
+
+<p>layout: post
+title: &ldquo;往本地文件系统写入用户注册信息的两种方法&rdquo;
+date: 2014-07-28 22:13
+comments: true
+categories:
+&mdash;-往本地文件系统写入用户注册信息的两种方法
+&ndash;(IBAction)userRegister:(id)sender{</p>
+
+<p>NSString*userRecord = [NSString stringWithFormat:@“\n%@,%@,%@&ldquo;,</p>
+
+<pre><code>               self.userName.text,
+
+               self.password.text,
+
+               self.email.text];
+</code></pre>
+
+<p>NSString *docDir = [NSSearchPathForDirectoriesInDomains,</p>
+
+<pre><code>                            NSDocumentDirectory,
+
+                            NSUserDomainMask,YES)objectAtIndex: 0
+</code></pre>
+
+<p>];</p>
+
+<p>NSString *userFile = [docDir stringByAppendingPathComponent:@&ldquo;userDat a.csv”];
+NSLog(@“%@“,userFile);</p>
+
+<p>if(![[NSFileManager defaultManager]fileExistsAtPath:userFile]){</p>
+
+<p>if([[NSFileManager defaultManager]createFileAtPath:userFile contents:ni l attributes:nil)</p>
+
+<p>NSLog(@“YES”);
+else{</p>
+
+<p>NSLog(@&ldquo;NO&mdash;注册失败!”);</p>
+
+<pre><code>             }
+      }
+</code></pre>
+
+<p>NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:us erFile];</p>
+
+<p>[fileHandle seekToEndOfFile];</p>
+
+<p> [fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding]];</p>
+
+<p>[fileHandle closeFile];</p>
+
+<p>[self regSuccess]</p>
+
+<p>self.userName.text = @“&#8221;;</p>
+
+<p>self.password.text = @“&#8221;;
+self.email.text = @“&#8221;;
+}
+另外,还有一个辅助的方法 regSuccess,用来在屏幕上弹出用户注册成功的提示信息:
+&ndash;(void)regSuccess{
+  UIAlertView <em>alertDialog;
+  alertDialog = [[UIAlertView alloc]initWithTitle:@&ldquo;EntLib.com 电子图书管理系统&rdquo;       message:@&ldquo;注册成功!&rdquo;
+  delegate:self
+  cancelButtonTitle:@&ldquo;OK&rdquo;
+  otherButtonTitles:nil];
+  [alertDialog show];}
+接下来,是一个 NSFileHandle 类的 fileHandleForUpdatingAtPath 方法,获取指定该文件的引用,更新该文件。跳到文件的末尾,调用 writeData 方法,将用户注册信息写入到文件中。NSFileHandle </em>fileHandle =[NSFileHandle fileHandleForUpdatingAtPath:us erFile];[fileHandle seekToEndOfFile];
+[fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding];[fileHandle closeFile];在文件写入完毕之后,调用 closeFile 方法关闭文件手柄。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -303,6 +409,10 @@ categories:
 <section>
   <h1>最近发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/wang-ben-di-wen-jian-xi-tong-xie-ru-yong-hu-zhu-ce-xin-xi-de-liang-chong-fang-fa/">Wang Ben Di Wen Jian Xi Tong Xie Ru Yong Hu Zhu Ce Xin Xi De Liang Chong Fang Fa</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/07/22/CALay%E5%92%8CUIView/">Calay和uiview</a>
