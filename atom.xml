@@ -4,7 +4,7 @@
   <title><![CDATA[kAir]]></title>
   <link href="http://kAirzhen.github.io/atom.xml" rel="self"/>
   <link href="http://kAirzhen.github.io/"/>
-  <updated>2014-07-28T23:23:42+08:00</updated>
+  <updated>2014-07-28T23:35:25+08:00</updated>
   <id>http://kAirzhen.github.io/</id>
   <author>
     <name><![CDATA[贞]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Wang Ben Di Wen Jian Xi Tong Xie Ru Yong Hu Zhu Ce Xin Xi De Liang Chong Fang Fa]]></title>
-    <link href="http://kAirzhen.github.io/blog/2014/07/28/wang-ben-di-wen-jian-xi-tong-xie-ru-yong-hu-zhu-ce-xin-xi-de-liang-chong-fang-fa/"/>
+    <title type="html"><![CDATA[往本地文件系统写入用户注册信息的两种方法]]></title>
+    <link href="http://kAirzhen.github.io/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
     <updated>2014-07-28T00:00:00+08:00</updated>
-    <id>http://kAirzhen.github.io/blog/2014/07/28/wang-ben-di-wen-jian-xi-tong-xie-ru-yong-hu-zhu-ce-xin-xi-de-liang-chong-fang-fa</id>
+    <id>http://kAirzhen.github.io/blog/2014/07/28/往本地文件系统写入用户注册信息的两种方法</id>
     <content type="html"><![CDATA[<hr />
 
 <p>layout: post
