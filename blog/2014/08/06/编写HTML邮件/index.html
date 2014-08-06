@@ -17,7 +17,7 @@
 <p class="p1">
   <header>
     
-      <h1 class="entry-title">Rake 命令</h1>
+      <h1 class="entry-title">编写html邮件</h1>
     
     
       <p class="meta">
@@ -33,7 +33,7 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time>
+<time datetime="2014-08-06T20:24:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -42,45 +42,9 @@
   </header>
 
 
-<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake clean                     # Clean out caches: .pygments-cache, .gist-c...
-</span><span class='line'>rake copydot[source,dest]      # copy dot files for deployment
-</span><span class='line'>rake deploy                    # Default deploy task
-</span><span class='line'>rake gen_deploy                # Generate website and deploy
-</span><span class='line'>rake generate                  # Generate jekyll site
-</span><span class='line'>rake install[theme]            # Initial setup for Octopress: copies the de...
-</span><span class='line'>rake integrate                 # Move all stashed posts back into the posts...
-</span><span class='line'>rake isolate[filename]         # Move all other posts than the one currentl...
-</span><span class='line'>rake list                      # list tasks
-</span><span class='line'>rake new_page[filename]        # Create a new page in source/(filename)/ind...
-</span><span class='line'>rake new_post[title]           # Begin a new post in source/_posts
-</span><span class='line'>rake preview                   # preview the site in a web browser
-</span><span class='line'>rake push                      # deploy public directory to github pages
-</span><span class='line'>rake rsync                     # Deploy website via rsync
-</span><span class='line'>rake set_root_dir[dir]         # Update configurations to support publishin...
-</span><span class='line'>rake setup_github_pages[repo]  # Set up _deploy folder and deploy branch fo...
-</span><span class='line'>rake update_source[theme]      # Move source to source.old, install source ...
-</span><span class='line'>rake update_style[theme]       # Move sass to sass.old, install sass theme ...
-</span><span class='line'>rake watch                     # Watch the site and regenerate when it changes</span></code></pre></td></tr></table></div></figure>
-
+<div class="entry-content"><p>在 SimpleEmail App 中仅仅支持文本邮件。通过更改 setMessageBody 方法中的 isHTML 参数 – 从 N 更改为 Y,App 将支持 HTML 邮件。再次更 改 showEmail 方法的代码如下:&ndash; (IBAction)showEmail:(id)sender {// Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;; // Email Content￼NSString </em>messageBody = @&ldquo;<h1>Test iOS Programming!</h1>&rdquo;; NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x73;&#x75;&#112;&#112;&#111;&#114;&#x74;&#x40;&#x61;&#x70;&#x70;&#x63;&#x6f;&#100;&#97;&#x2e;&#x63;&#111;&#109;">&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#64;&#x61;&#112;&#112;&#x63;&#x6f;&#x64;&#x61;&#x2e;&#x63;&#111;&#109;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:YES];
+[mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}编译并再次运行 App。经过一些简单的更改,SimpleEmail 应用程序现在提供了HTML 支持了!
+注：Xcode不知道 MFMailComposeViewController 是什么。尽管MFMailComposeViewController 是iOS SDK内置的控制器,但是需要在项目中嵌入必要的框架MessageUI.framework。否则编译时会报错。</p>
 </div>
 
 </p>
@@ -100,11 +64,11 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time> 
+<time datetime="2014-08-06T20:24:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time> 
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rake/'>rake</a>
+    <a class='category' href='/blog/categories/xue-xi/'>学习</a>
   
 </span>
 
@@ -141,7 +105,7 @@
   
 </div>
  </p>
-<p class="p2">  <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.next.url%7D%7D"><span class="s1">rake-aborted »</span></a> </p>
+<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« 如何在App中发送邮件</span></a>  </p>
 <p class="p1"></p>
 <h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times"><b>Comments</b></h1>
 <p class="p1"><div id="disqus_thread"></div>
