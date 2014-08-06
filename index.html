@@ -9,12 +9,8 @@
   <meta name="author" content="贞">
 
   
-  <meta name="description" content="layout: post
-title: &ldquo;往本地文件系统写入用户注册信息的两种方法&rdquo;
-date: 2014-07-28 22:13
-comments: true
-categories:
-&mdash;&ndash; 往本地文件系统写入用户注册信息的两种方法 &ndash &hellip;">
+  <meta name="description" content="目标：App 实现的功能是 – 当用户轻拍 Contact Us 按钮时,将弹出 email 界面。 首先，interface builder 界面,连接按钮和 action 方法。命名方法名称 – showEmail, 保留 Event 事件为 Touch Up Inside。
+然后，实现 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,6 +84,50 @@ categories:
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">如何在App中发送邮件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-06T20:04:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目标：App 实现的功能是 – 当用户轻拍 Contact Us 按钮时,将弹出 email 界面。</p>
+
+<p>首先，interface builder 界面,连接按钮和 action 方法。命名方法名称 – showEmail, 保留 Event 事件为 Touch Up Inside。
+然后，实现 Email 接口，接着,引入 MessageUI.h 头文件,实现在 SimpleEmailViewController.h 中 MFMailComposeViewControllerDelegate 委托。
+代码实现：</p>
+
+<h1>import &lt;UIKit/UIKit.h>#import &lt;MessageUI/MessageUI.h>@interface SimpleEmailViewController : UIViewController <MFMailComposeViewControllerDelegate> // Add the delegate &ndash; (IBAction)showEmail:(id)sender;@end选择 SimpleEmailViewController.m 文件,实现 showEmail 方法和MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:￼- (IBAction)showEmail:(id)sender { // Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;;NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#64;&#97;&#x70;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#111;&#109;">&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#116;&#x40;&#97;&#x70;&#112;&#x63;&#111;&#x64;&#x61;&#x2e;&#x63;&#111;&#109;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:NO]; [mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}//在屏幕上显示 email 界面- (void) mailComposeController:(MFMailComposeViewController <em>)controller￼didFinishWithResult:(MFMailComposeResult)result error:(NSError </em>)error {switch (result) {case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);break;case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);break;case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);break;case MFMailComposeResultFailed:NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;default: break;}[self dismissViewControllerAnimated:YES completion:NULL];}代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</h1>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">往本地文件系统写入用户注册信息的两种方法</a></h1>
     
     
@@ -104,7 +144,7 @@ categories:
   
 
 
-<time datetime="2014-07-28T00:00:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
+<time datetime="2014-07-28T22:13:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
         
          | <a href="/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/#disqus_thread">Comments</a>
         
@@ -113,16 +153,7 @@ categories:
   </header>
 
 
-  <div class="entry-content"><hr />
-
-<p>layout: post
-title: &ldquo;往本地文件系统写入用户注册信息的两种方法&rdquo;
-date: 2014-07-28 22:13
-comments: true
-categories:
-&mdash;&ndash; 往本地文件系统写入用户注册信息的两种方法</p>
-
-<p>&ndash;(IBAction)userRegister:(id)sender{</p>
+  <div class="entry-content"><p>&ndash;(IBAction)userRegister:(id)sender{</p>
 
 <p>NSString*userRecord = [NSString stringWithFormat:@“\n%@,%@,%@&ldquo;,</p>
 
@@ -411,6 +442,10 @@ categories:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">如何在App中发送邮件</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">往本地文件系统写入用户注册信息的两种方法</a>
       </li>
     
@@ -426,15 +461,11 @@ categories:
         <a href="/blog/2014/07/08/rake-aborted/">rake-aborted</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/07/08/rake-T/">rake 命令</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (3)</a></li></ul>
 </section>
 <section>
   <h1>外部链接</h1>

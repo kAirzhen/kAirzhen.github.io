@@ -17,7 +17,7 @@
 <p class="p1">
   <header>
     
-      <h1 class="entry-title">Rake 命令</h1>
+      <h1 class="entry-title">如何在App中发送邮件</h1>
     
     
       <p class="meta">
@@ -33,7 +33,7 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time>
+<time datetime="2014-08-06T20:04:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -42,45 +42,13 @@
   </header>
 
 
-<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake clean                     # Clean out caches: .pygments-cache, .gist-c...
-</span><span class='line'>rake copydot[source,dest]      # copy dot files for deployment
-</span><span class='line'>rake deploy                    # Default deploy task
-</span><span class='line'>rake gen_deploy                # Generate website and deploy
-</span><span class='line'>rake generate                  # Generate jekyll site
-</span><span class='line'>rake install[theme]            # Initial setup for Octopress: copies the de...
-</span><span class='line'>rake integrate                 # Move all stashed posts back into the posts...
-</span><span class='line'>rake isolate[filename]         # Move all other posts than the one currentl...
-</span><span class='line'>rake list                      # list tasks
-</span><span class='line'>rake new_page[filename]        # Create a new page in source/(filename)/ind...
-</span><span class='line'>rake new_post[title]           # Begin a new post in source/_posts
-</span><span class='line'>rake preview                   # preview the site in a web browser
-</span><span class='line'>rake push                      # deploy public directory to github pages
-</span><span class='line'>rake rsync                     # Deploy website via rsync
-</span><span class='line'>rake set_root_dir[dir]         # Update configurations to support publishin...
-</span><span class='line'>rake setup_github_pages[repo]  # Set up _deploy folder and deploy branch fo...
-</span><span class='line'>rake update_source[theme]      # Move source to source.old, install source ...
-</span><span class='line'>rake update_style[theme]       # Move sass to sass.old, install sass theme ...
-</span><span class='line'>rake watch                     # Watch the site and regenerate when it changes</span></code></pre></td></tr></table></div></figure>
+<div class="entry-content"><p>目标：App 实现的功能是 – 当用户轻拍 Contact Us 按钮时,将弹出 email 界面。</p>
 
+<p>首先，interface builder 界面,连接按钮和 action 方法。命名方法名称 – showEmail, 保留 Event 事件为 Touch Up Inside。
+然后，实现 Email 接口，接着,引入 MessageUI.h 头文件,实现在 SimpleEmailViewController.h 中 MFMailComposeViewControllerDelegate 委托。
+代码实现：</p>
+
+<h1>import &lt;UIKit/UIKit.h>#import &lt;MessageUI/MessageUI.h>@interface SimpleEmailViewController : UIViewController <MFMailComposeViewControllerDelegate> // Add the delegate &ndash; (IBAction)showEmail:(id)sender;@end选择 SimpleEmailViewController.m 文件,实现 showEmail 方法和MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:￼- (IBAction)showEmail:(id)sender { // Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;;NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#64;&#97;&#x70;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#111;&#109;">&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#116;&#x40;&#97;&#x70;&#112;&#x63;&#111;&#x64;&#x61;&#x2e;&#x63;&#111;&#109;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:NO]; [mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}//在屏幕上显示 email 界面- (void) mailComposeController:(MFMailComposeViewController <em>)controller￼didFinishWithResult:(MFMailComposeResult)result error:(NSError </em>)error {switch (result) {case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);break;case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);break;case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);break;case MFMailComposeResultFailed:NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;default: break;}[self dismissViewControllerAnimated:YES completion:NULL];}代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</h1>
 </div>
 
 </p>
@@ -100,11 +68,11 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time> 
+<time datetime="2014-08-06T20:04:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time> 
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rake/'>rake</a>
+    <a class='category' href='/blog/categories/xue-xi/'>学习</a>
   
 </span>
 
@@ -141,7 +109,7 @@
   
 </div>
  </p>
-<p class="p2">  <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.next.url%7D%7D"><span class="s1">rake-aborted »</span></a> </p>
+<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« 往本地文件系统写入用户注册信息的两种方法</span></a>  </p>
 <p class="p1"></p>
 <h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times"><b>Comments</b></h1>
 <p class="p1"><div id="disqus_thread"></div>
