@@ -17,7 +17,7 @@
 <p class="p1">
   <header>
     
-      <h1 class="entry-title">Rake-aborted</h1>
+      <h1 class="entry-title">外部化表数据之Property List</h1>
     
     
       <p class="meta">
@@ -33,7 +33,7 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time>
+<time datetime="2014-08-06T20:48:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -42,11 +42,14 @@
   </header>
 
 
-<div class="entry-content"><p><strong><strong>当时使用octopress生成网页时，报错如下</strong></strong>
-<img src="/images/post/2014-07-18-rake-aborted/rake-aborted-1.png"></p>
-
-<p><strong><strong>后来，直接把最新版本rake卸载即可。如下图:</strong></strong>
-<img src="/images/post/2014-07-18-rake-aborted/rake-aborted-2.png"></p>
+<div class="entry-content"><p>将静态数据从代码中分离出来是一个很好的做法。
+假设让需要添加100多个新数据到应用程序中,需要返回源代码,将新的数据添加到初始化代码中，这无疑使得代码看起来表冗长。同时编辑这些代码并不简单,并且必须要严格遵守Objective-C语法，更改代码可能会引入其他错误。最好是将数据和代码逻辑分离。
+Property List 提供了一个方便的方法来存放简单的结构数据,通常为XML格式。但是不能使用Property List 存放所有类型的数据。
+下面开始转换数据为 Property List：
+首先创建一个空的Property List 文件。
+其次在Property List中添加n个数据数组，并添加完成了所有数组元素。
+最后Property List中读取内容相当简单iOS SDK已经有内置的方法来处理该文件的读写操作。
+Property List并不是存放表数据的最好方法，还有很多其他方法。</p>
 </div>
 
 </p>
@@ -66,11 +69,11 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time> 
+<time datetime="2014-08-06T20:48:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time> 
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rake/'>rake</a>
+    <a class='category' href='/blog/categories/xue-xi/'>学习</a>
   
 </span>
 
@@ -107,7 +110,7 @@
   
 </div>
  </p>
-<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« rake 命令</span></a>   <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.next.url%7D%7D"><span class="s1">hello »</span></a> </p>
+<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« 编写html邮件</span></a>  </p>
 <p class="p1"></p>
 <h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times"><b>Comments</b></h1>
 <p class="p1"><div id="disqus_thread"></div>
