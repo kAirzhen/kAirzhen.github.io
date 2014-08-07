@@ -1,0 +1,8 @@
+---
+layout: post
+title: "关于git的理解"
+date: 2014-08-07 18:30
+comments: true
+categories: 学习
+---
+在git里面，分支允许隔离开发自己的项目

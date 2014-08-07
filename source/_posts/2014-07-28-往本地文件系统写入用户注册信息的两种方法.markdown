@@ -1,0 +1,66 @@
+---
+layout: post
+title: "往本地文件系统写入用户注册信息的两种方法"
+date: 2014-07-28 22:13
+comments: true
+categories: 学习
+--- 
+
+
+
+-(IBAction)userRegister:(id)sender{
+
+NSString*userRecord = [NSString stringWithFormat:@“\n%@,%@,%@", 
+
+                   self.userName.text,
+
+                   self.password.text,
+
+                   self.email.text];
+
+NSString *docDir = [NSSearchPathForDirectoriesInDomains,
+
+                                NSDocumentDirectory,
+
+                                NSUserDomainMask,YES)objectAtIndex: 0
+
+];
+
+NSString *userFile = [docDir stringByAppendingPathComponent:@"userDat a.csv”];
+NSLog(@“%@“,userFile);
+
+if(![[NSFileManager defaultManager]fileExistsAtPath:userFile]){
+
+if([[NSFileManager defaultManager]createFileAtPath:userFile contents:ni l attributes:nil)
+
+NSLog(@“YES”);
+else{
+
+NSLog(@"NO--注册失败!”);
+                 }
+          }
+NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:us erFile];
+
+[fileHandle seekToEndOfFile];
+
+ [fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding]];
+
+[fileHandle closeFile];
+
+[self regSuccess]
+
+self.userName.text = @“";
+
+self.password.text = @“";
+self.email.text = @“";
+}
+另外,还有一个辅助的方法 regSuccess,用来在屏幕上弹出用户注册成功的提示信息:
+-(void)regSuccess{
+  UIAlertView *alertDialog;
+  alertDialog = [[UIAlertView alloc]initWithTitle:@"EntLib.com 电子图书管理系统"       message:@"注册成功!"
+  delegate:self 
+  cancelButtonTitle:@"OK"
+  otherButtonTitles:nil];
+  [alertDialog show];}
+接下来,是一个 NSFileHandle 类的 fileHandleForUpdatingAtPath 方法,获取指定该文件的引用,更新该文件。跳到文件的末尾,调用 writeData 方法,将用户注册信息写入到文件中。NSFileHandle *fileHandle =[NSFileHandle fileHandleForUpdatingAtPath:us erFile];[fileHandle seekToEndOfFile]; 
+[fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding];[fileHandle closeFile];在文件写入完毕之后,调用 closeFile 方法关闭文件手柄。

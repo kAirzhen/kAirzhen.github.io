@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>kAir</title>
+  <meta name="author" content="贞">
+
+  
+  <meta name="description" content="将静态数据从代码中分离出来是一个很好的做法。
+假设让需要添加100多个新数据到应用程序中,需要返回源代码,将新的数据添加到初始化代码中，这无疑使得代码看起来表冗长。同时编辑这些代码并不简单,并且必须要严格遵守Objective-C语法，更改代码可能会引入其他错误。最好是将数据和代码逻辑分离。 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kAirzhen.github.io">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="kAir" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39546615-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">kAir</a></h1>
+  
+    <h2>谋成者勇</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kAirzhen.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/06/%E5%A4%96%E9%83%A8%E5%8C%96%E8%A1%A8%E6%95%B0%E6%8D%AE%E4%B9%8BProperty+List/">外部化表数据之Property List</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-06T20:48:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/08/06/%E5%A4%96%E9%83%A8%E5%8C%96%E8%A1%A8%E6%95%B0%E6%8D%AE%E4%B9%8BProperty+List/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>将静态数据从代码中分离出来是一个很好的做法。
+假设让需要添加100多个新数据到应用程序中,需要返回源代码,将新的数据添加到初始化代码中，这无疑使得代码看起来表冗长。同时编辑这些代码并不简单,并且必须要严格遵守Objective-C语法，更改代码可能会引入其他错误。最好是将数据和代码逻辑分离。
+Property List 提供了一个方便的方法来存放简单的结构数据,通常为XML格式。但是不能使用Property List 存放所有类型的数据。
+下面开始转换数据为 Property List：
+首先创建一个空的Property List 文件。
+其次在Property List中添加n个数据数组，并添加完成了所有数组元素。
+最后Property List中读取内容相当简单iOS SDK已经有内置的方法来处理该文件的读写操作。
+Property List并不是存放表数据的最好方法，还有很多其他方法。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/06/%E7%BC%96%E5%86%99HTML%E9%82%AE%E4%BB%B6/">编写html邮件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-06T20:24:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/08/06/%E7%BC%96%E5%86%99HTML%E9%82%AE%E4%BB%B6/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在 SimpleEmail App 中仅仅支持文本邮件。通过更改 setMessageBody 方法中的 isHTML 参数 – 从 N 更改为 Y,App 将支持 HTML 邮件。再次更 改 showEmail 方法的代码如下:&ndash; (IBAction)showEmail:(id)sender {// Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;; // Email Content￼NSString </em>messageBody = @&ldquo;<h1>Test iOS Programming!</h1>&rdquo;; NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x73;&#x75;&#x70;&#112;&#111;&#x72;&#116;&#64;&#x61;&#x70;&#x70;&#x63;&#x6f;&#100;&#97;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#64;&#97;&#x70;&#112;&#x63;&#111;&#x64;&#97;&#46;&#x63;&#x6f;&#109;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:YES];
+[mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}编译并再次运行 App。经过一些简单的更改,SimpleEmail 应用程序现在提供了HTML 支持了!
+注：Xcode不知道 MFMailComposeViewController 是什么。尽管MFMailComposeViewController 是iOS SDK内置的控制器,但是需要在项目中嵌入必要的框架MessageUI.framework。否则编译时会报错。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">如何在App中发送邮件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-06T20:04:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目标：App 实现的功能是 – 当用户轻拍 Contact Us 按钮时,将弹出 email 界面。</p>
+
+<p>首先，interface builder 界面,连接按钮和 action 方法。命名方法名称 – showEmail, 保留 Event 事件为 Touch Up Inside。
+然后，实现 Email 接口，接着,引入 MessageUI.h 头文件,实现在 SimpleEmailViewController.h 中 MFMailComposeViewControllerDelegate 委托。
+代码实现：</p>
+
+<h1>import &lt;UIKit/UIKit.h>#import &lt;MessageUI/MessageUI.h>@interface SimpleEmailViewController : UIViewController <MFMailComposeViewControllerDelegate> // Add the delegate &ndash; (IBAction)showEmail:(id)sender;@end选择 SimpleEmailViewController.m 文件,实现 showEmail 方法和MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:￼- (IBAction)showEmail:(id)sender { // Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;;NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#116;&#x40;&#x61;&#x70;&#x70;&#x63;&#x6f;&#100;&#x61;&#46;&#99;&#x6f;&#109;">&#115;&#117;&#112;&#x70;&#x6f;&#x72;&#116;&#64;&#97;&#x70;&#112;&#x63;&#111;&#100;&#97;&#x2e;&#x63;&#111;&#x6d;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:NO]; [mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}//在屏幕上显示 email 界面- (void) mailComposeController:(MFMailComposeViewController <em>)controller￼didFinishWithResult:(MFMailComposeResult)result error:(NSError </em>)error {switch (result) {case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);break;case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);break;case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);break;case MFMailComposeResultFailed:NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;default: break;}[self dismissViewControllerAnimated:YES completion:NULL];}代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</h1>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">往本地文件系统写入用户注册信息的两种方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-28T22:13:00+08:00" pubdate data-updated="true">Jul 28<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&ndash;(IBAction)userRegister:(id)sender{</p>
+
+<p>NSString*userRecord = [NSString stringWithFormat:@“\n%@,%@,%@&ldquo;,</p>
+
+<pre><code>               self.userName.text,
+
+               self.password.text,
+
+               self.email.text];
+</code></pre>
+
+<p>NSString *docDir = [NSSearchPathForDirectoriesInDomains,</p>
+
+<pre><code>                            NSDocumentDirectory,
+
+                            NSUserDomainMask,YES)objectAtIndex: 0
+</code></pre>
+
+<p>];</p>
+
+<p>NSString *userFile = [docDir stringByAppendingPathComponent:@&ldquo;userDat a.csv”];
+NSLog(@“%@“,userFile);</p>
+
+<p>if(![[NSFileManager defaultManager]fileExistsAtPath:userFile]){</p>
+
+<p>if([[NSFileManager defaultManager]createFileAtPath:userFile contents:ni l attributes:nil)</p>
+
+<p>NSLog(@“YES”);
+else{</p>
+
+<p>NSLog(@&ldquo;NO&mdash;注册失败!”);</p>
+
+<pre><code>             }
+      }
+</code></pre>
+
+<p>NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:us erFile];</p>
+
+<p>[fileHandle seekToEndOfFile];</p>
+
+<p> [fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding]];</p>
+
+<p>[fileHandle closeFile];</p>
+
+<p>[self regSuccess]</p>
+
+<p>self.userName.text = @“&#8221;;</p>
+
+<p>self.password.text = @“&#8221;;
+self.email.text = @“&#8221;;
+}
+另外,还有一个辅助的方法 regSuccess,用来在屏幕上弹出用户注册成功的提示信息:
+&ndash;(void)regSuccess{
+  UIAlertView <em>alertDialog;
+  alertDialog = [[UIAlertView alloc]initWithTitle:@&ldquo;EntLib.com 电子图书管理系统&rdquo;       message:@&ldquo;注册成功!&rdquo;
+  delegate:self
+  cancelButtonTitle:@&ldquo;OK&rdquo;
+  otherButtonTitles:nil];
+  [alertDialog show];}
+接下来,是一个 NSFileHandle 类的 fileHandleForUpdatingAtPath 方法,获取指定该文件的引用,更新该文件。跳到文件的末尾,调用 writeData 方法,将用户注册信息写入到文件中。NSFileHandle </em>fileHandle =[NSFileHandle fileHandleForUpdatingAtPath:us erFile];[fileHandle seekToEndOfFile];
+[fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding];[fileHandle closeFile];在文件写入完毕之后,调用 closeFile 方法关闭文件手柄。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/22/CALay%E5%92%8CUIView/">Calay和uiview</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-22T00:00:00+08:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2014</time>
+        
+         | <a href="/blog/2014/07/22/CALay%E5%92%8CUIView/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><hr />
+
+<p>layout: post
+title: &ldquo;CALayer和UIView&rdquo;
+date: 2014-07-22 23:49
+comments: true
+categories:
+&mdash;-学习
+两者最大的区别是,图层不会直接渲染到屏幕上，UIView是iOS系统中界面元素的基础，所有的界面元素都是继承自它。它本身完全是由CoreAnimation来实现的。它真正的绘图部分，是由一个CALayer类来管理。UIView本身更像是一个CALayer的管理器。一个UIView上可以有n个CALayer，每个layer显示一种东西，增强UIView的展现能力。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/19/hello/">Hello</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-19T16:05:00+08:00" pubdate data-updated="true">Jul 19<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/07/19/hello/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>hello！</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/08/rake-aborted/">Rake-aborted</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/07/08/rake-aborted/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong><strong>当时使用octopress生成网页时，报错如下</strong></strong>
+<img src="/images/post/2014-07-18-rake-aborted/rake-aborted-1.png"></p>
+
+<p><strong><strong>后来，直接把最新版本rake卸载即可。如下图:</strong></strong>
+<img src="/images/post/2014-07-18-rake-aborted/rake-aborted-2.png"></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/07/08/rake-T/">Rake 命令</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/07/08/rake-T/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake clean                     # Clean out caches: .pygments-cache, .gist-c...
+</span><span class='line'>rake copydot[source,dest]      # copy dot files for deployment
+</span><span class='line'>rake deploy                    # Default deploy task
+</span><span class='line'>rake gen_deploy                # Generate website and deploy
+</span><span class='line'>rake generate                  # Generate jekyll site
+</span><span class='line'>rake install[theme]            # Initial setup for Octopress: copies the de...
+</span><span class='line'>rake integrate                 # Move all stashed posts back into the posts...
+</span><span class='line'>rake isolate[filename]         # Move all other posts than the one currentl...
+</span><span class='line'>rake list                      # list tasks
+</span><span class='line'>rake new_page[filename]        # Create a new page in source/(filename)/ind...
+</span><span class='line'>rake new_post[title]           # Begin a new post in source/_posts
+</span><span class='line'>rake preview                   # preview the site in a web browser
+</span><span class='line'>rake push                      # deploy public directory to github pages
+</span><span class='line'>rake rsync                     # Deploy website via rsync
+</span><span class='line'>rake set_root_dir[dir]         # Update configurations to support publishin...
+</span><span class='line'>rake setup_github_pages[repo]  # Set up _deploy folder and deploy branch fo...
+</span><span class='line'>rake update_source[theme]      # Move source to source.old, install source ...
+</span><span class='line'>rake update_style[theme]       # Move sass to sass.old, install sass theme ...
+</span><span class='line'>rake watch                     # Watch the site and regenerate when it changes</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>关于我</h1>
+  <p>项目经历：手机单机游戏，手机网游封神_Online,腾讯地图客户端，腾讯地图&街景API,目前在做淘宝iPad客户端。</p>
+  <p>爱好技术，喜欢产品。能多做点事，就不少做一分.</p>
+  <p>QQ:309235009</p>
+</section>
+<section>
+  <h1>最近发布</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/06/%E5%A4%96%E9%83%A8%E5%8C%96%E8%A1%A8%E6%95%B0%E6%8D%AE%E4%B9%8BProperty+List/">外部化表数据之Property List</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/06/%E7%BC%96%E5%86%99HTML%E9%82%AE%E4%BB%B6/">编写html邮件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">如何在App中发送邮件</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">往本地文件系统写入用户注册信息的两种方法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/CALay%E5%92%8CUIView/">Calay和uiview</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>分类</h1>
+    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (5)</a></li></ul>
+</section>
+<section>
+  <h1>外部链接</h1>
+    <ul id="外部链接">
+    	<li><a href="https://developer.apple.com">苹果开发者中心</a> </li>
+    	<li><a href="http://stackoverflow.com/questions/tagged/ios">stackoverflow</a></li>
+	</ul>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - 贞 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'kAirZhen';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
