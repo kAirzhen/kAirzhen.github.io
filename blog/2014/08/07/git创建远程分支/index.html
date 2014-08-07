@@ -17,7 +17,7 @@
 <p class="p1">
   <header>
     
-      <h1 class="entry-title">Rake 命令</h1>
+      <h1 class="entry-title">Git创建远程分支</h1>
     
     
       <p class="meta">
@@ -33,7 +33,7 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time>
+<time datetime="2014-08-07T18:30:00+08:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -42,45 +42,13 @@
   </header>
 
 
-<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake clean                     # Clean out caches: .pygments-cache, .gist-c...
-</span><span class='line'>rake copydot[source,dest]      # copy dot files for deployment
-</span><span class='line'>rake deploy                    # Default deploy task
-</span><span class='line'>rake gen_deploy                # Generate website and deploy
-</span><span class='line'>rake generate                  # Generate jekyll site
-</span><span class='line'>rake install[theme]            # Initial setup for Octopress: copies the de...
-</span><span class='line'>rake integrate                 # Move all stashed posts back into the posts...
-</span><span class='line'>rake isolate[filename]         # Move all other posts than the one currentl...
-</span><span class='line'>rake list                      # list tasks
-</span><span class='line'>rake new_page[filename]        # Create a new page in source/(filename)/ind...
-</span><span class='line'>rake new_post[title]           # Begin a new post in source/_posts
-</span><span class='line'>rake preview                   # preview the site in a web browser
-</span><span class='line'>rake push                      # deploy public directory to github pages
-</span><span class='line'>rake rsync                     # Deploy website via rsync
-</span><span class='line'>rake set_root_dir[dir]         # Update configurations to support publishin...
-</span><span class='line'>rake setup_github_pages[repo]  # Set up _deploy folder and deploy branch fo...
-</span><span class='line'>rake update_source[theme]      # Move source to source.old, install source ...
-</span><span class='line'>rake update_style[theme]       # Move sass to sass.old, install sass theme ...
-</span><span class='line'>rake watch                     # Watch the site and regenerate when it changes</span></code></pre></td></tr></table></div></figure>
-
+<div class="entry-content"><p>在git里面，分支允许隔离开发自己的项目。创建远程分支步骤如下：
+1.先git init//创建git版本库
+2.在git branch develop//本地电脑创建了一个develop分支
+3.git remote add origin <a href="https://github.com/kAirzhen/kAirzhen.github.io//%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%BA%93%E4%BA%86%E4%B9%88">https://github.com/kAirzhen/kAirzhen.github.io//%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%BA%93%E4%BA%86%E4%B9%88</a>
+4.git add .//添加想要提交的文件名称，此处表示将当前目录（包括其子目录）所有被修改或者已删除的文档，以及用户所添加的新文档，追加到索引中。
+5.git commit -a -m &ldquo;保存develop分支&rdquo;//只将所有被修改或者已删除的且已经被git管理的文档提交到仓库中，并描述提交信息。
+6.git push origin develop//把本地文件就提交到了远程develop分支上</p>
 </div>
 
 </p>
@@ -100,11 +68,11 @@
   
 
 
-<time datetime="2014-07-08T15:52:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2014</time> 
+<time datetime="2014-08-07T18:30:00+08:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time> 
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rake/'>rake</a>
+    <a class='category' href='/blog/categories/xue-xi/'>学习</a>
   
 </span>
 
@@ -141,7 +109,7 @@
   
 </div>
  </p>
-<p class="p2">  <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.next.url%7D%7D"><span class="s1">rake-aborted »</span></a> </p>
+<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« 外部化表数据之Property List</span></a>  </p>
 <p class="p1"></p>
 <h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times"><b>Comments</b></h1>
 <p class="p1"><div id="disqus_thread"></div>

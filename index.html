@@ -9,8 +9,10 @@
   <meta name="author" content="贞">
 
   
-  <meta name="description" content="将静态数据从代码中分离出来是一个很好的做法。
-假设让需要添加100多个新数据到应用程序中,需要返回源代码,将新的数据添加到初始化代码中，这无疑使得代码看起来表冗长。同时编辑这些代码并不简单,并且必须要严格遵守Objective-C语法，更改代码可能会引入其他错误。最好是将数据和代码逻辑分离。 &hellip;">
+  <meta name="description" content="在git里面，分支允许隔离开发自己的项目。创建远程分支步骤如下：
+1.先git init//创建git版本库
+2.在git branch develop//本地电脑创建了一个develop分支
+3.git remote add origin https://github.com/kAirzhen/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +80,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/07/git%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF/">Git创建远程分支</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-07T18:30:00+08:00" pubdate data-updated="true">Aug 7<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/08/07/git%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在git里面，分支允许隔离开发自己的项目。创建远程分支步骤如下：
+1.先git init//创建git版本库
+2.在git branch develop//本地电脑创建了一个develop分支
+3.git remote add origin <a href="https://github.com/kAirzhen/kAirzhen.github.io//%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%BA%93%E4%BA%86%E4%B9%88">https://github.com/kAirzhen/kAirzhen.github.io//%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%BA%93%E4%BA%86%E4%B9%88</a>
+4.git add .//添加想要提交的文件名称，此处表示将当前目录（包括其子目录）所有被修改或者已删除的文档，以及用户所添加的新文档，追加到索引中。
+5.git commit -a -m &ldquo;保存develop分支&rdquo;//只将所有被修改或者已删除的且已经被git管理的文档提交到仓库中，并描述提交信息。
+6.git push origin develop//把本地文件就提交到了远程develop分支上</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -154,7 +200,7 @@ Property List并不是存放表数据的最好方法，还有很多其他方法�
   </header>
 
 
-  <div class="entry-content"><p>在 SimpleEmail App 中仅仅支持文本邮件。通过更改 setMessageBody 方法中的 isHTML 参数 – 从 N 更改为 Y,App 将支持 HTML 邮件。再次更 改 showEmail 方法的代码如下:&ndash; (IBAction)showEmail:(id)sender {// Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;; // Email Content￼NSString </em>messageBody = @&ldquo;<h1>Test iOS Programming!</h1>&rdquo;; NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x73;&#x75;&#x70;&#112;&#111;&#x72;&#116;&#64;&#x61;&#x70;&#x70;&#x63;&#x6f;&#100;&#97;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#64;&#97;&#x70;&#112;&#x63;&#111;&#x64;&#97;&#46;&#x63;&#x6f;&#109;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:YES];
+  <div class="entry-content"><p>在 SimpleEmail App 中仅仅支持文本邮件。通过更改 setMessageBody 方法中的 isHTML 参数 – 从 N 更改为 Y,App 将支持 HTML 邮件。再次更 改 showEmail 方法的代码如下:&ndash; (IBAction)showEmail:(id)sender {// Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;; // Email Content￼NSString </em>messageBody = @&ldquo;<h1>Test iOS Programming!</h1>&rdquo;; NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#115;&#x75;&#112;&#112;&#111;&#114;&#116;&#x40;&#x61;&#112;&#112;&#x63;&#111;&#x64;&#x61;&#x2e;&#99;&#x6f;&#109;">&#115;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#x40;&#x61;&#112;&#x70;&#x63;&#111;&#100;&#x61;&#x2e;&#x63;&#x6f;&#x6d;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:YES];
 [mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}编译并再次运行 App。经过一些简单的更改,SimpleEmail 应用程序现在提供了HTML 支持了!
 注：Xcode不知道 MFMailComposeViewController 是什么。尽管MFMailComposeViewController 是iOS SDK内置的控制器,但是需要在项目中嵌入必要的框架MessageUI.framework。否则编译时会报错。</p>
 </div>
@@ -200,7 +246,7 @@ Property List并不是存放表数据的最好方法，还有很多其他方法�
 然后，实现 Email 接口，接着,引入 MessageUI.h 头文件,实现在 SimpleEmailViewController.h 中 MFMailComposeViewControllerDelegate 委托。
 代码实现：</p>
 
-<h1>import &lt;UIKit/UIKit.h>#import &lt;MessageUI/MessageUI.h>@interface SimpleEmailViewController : UIViewController <MFMailComposeViewControllerDelegate> // Add the delegate &ndash; (IBAction)showEmail:(id)sender;@end选择 SimpleEmailViewController.m 文件,实现 showEmail 方法和MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:￼- (IBAction)showEmail:(id)sender { // Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;;NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x73;&#117;&#x70;&#x70;&#x6f;&#114;&#116;&#x40;&#x61;&#x70;&#x70;&#x63;&#x6f;&#100;&#x61;&#46;&#99;&#x6f;&#109;">&#115;&#117;&#112;&#x70;&#x6f;&#x72;&#116;&#64;&#97;&#x70;&#112;&#x63;&#111;&#100;&#97;&#x2e;&#x63;&#111;&#x6d;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:NO]; [mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}//在屏幕上显示 email 界面- (void) mailComposeController:(MFMailComposeViewController <em>)controller￼didFinishWithResult:(MFMailComposeResult)result error:(NSError </em>)error {switch (result) {case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);break;case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);break;case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);break;case MFMailComposeResultFailed:NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;default: break;}[self dismissViewControllerAnimated:YES completion:NULL];}代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</h1>
+<h1>import &lt;UIKit/UIKit.h>#import &lt;MessageUI/MessageUI.h>@interface SimpleEmailViewController : UIViewController <MFMailComposeViewControllerDelegate> // Add the delegate &ndash; (IBAction)showEmail:(id)sender;@end选择 SimpleEmailViewController.m 文件,实现 showEmail 方法和MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:￼- (IBAction)showEmail:(id)sender { // Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;;NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#115;&#117;&#x70;&#112;&#x6f;&#x72;&#x74;&#x40;&#x61;&#x70;&#112;&#99;&#x6f;&#x64;&#x61;&#46;&#x63;&#111;&#x6d;">&#115;&#117;&#112;&#x70;&#x6f;&#x72;&#x74;&#64;&#97;&#112;&#x70;&#x63;&#111;&#x64;&#97;&#46;&#99;&#x6f;&#109;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:NO]; [mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}//在屏幕上显示 email 界面- (void) mailComposeController:(MFMailComposeViewController <em>)controller￼didFinishWithResult:(MFMailComposeResult)result error:(NSError </em>)error {switch (result) {case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);break;case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);break;case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);break;case MFMailComposeResultFailed:NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;default: break;}[self dismissViewControllerAnimated:YES completion:NULL];}代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</h1>
 </div>
   
   
@@ -527,6 +573,10 @@ categories:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/08/07/git%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF/">git创建远程分支</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/08/06/%E5%A4%96%E9%83%A8%E5%8C%96%E8%A1%A8%E6%95%B0%E6%8D%AE%E4%B9%8BProperty+List/">外部化表数据之Property List</a>
       </li>
     
@@ -542,15 +592,11 @@ categories:
         <a href="/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">往本地文件系统写入用户注册信息的两种方法</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/07/22/CALay%E5%92%8CUIView/">Calay和uiview</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (5)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (6)</a></li></ul>
 </section>
 <section>
   <h1>外部链接</h1>
