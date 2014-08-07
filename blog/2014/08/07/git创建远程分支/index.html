@@ -42,13 +42,15 @@
   </header>
 
 
-<div class="entry-content"><p>在git里面，分支允许隔离开发自己的项目。创建远程分支步骤如下：
-1.先git init//创建git版本库
-2.在git branch develop//本地电脑创建了一个develop分支
-3.git remote add origin <a href="https://github.com/kAirzhen/kAirzhen.github.io//%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%BA%93%E4%BA%86%E4%B9%88">https://github.com/kAirzhen/kAirzhen.github.io//%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%BA%93%E4%BA%86%E4%B9%88</a>
-4.git add .//添加想要提交的文件名称，此处表示将当前目录（包括其子目录）所有被修改或者已删除的文档，以及用户所添加的新文档，追加到索引中。
-5.git commit -a -m &ldquo;保存develop分支&rdquo;//只将所有被修改或者已删除的且已经被git管理的文档提交到仓库中，并描述提交信息。
-6.git push origin develop//把本地文件就提交到了远程develop分支上</p>
+<div class="entry-content"><h4>在git里面，分支允许隔离开发自己的项目。创建远程分支步骤如下：</h4>
+
+<pre><code>  1.先git init//创建git版本库
+  2.在git branch develop//本地电脑创建了一个develop分支
+  3.git remote add origin https://github.com/kAirzhen/kAirzhen.github.io//关联远程代码库了么
+  4.git add .//添加想要提交的文件名称，此处表示将当前目录（包括其子目录）所有被修改或者已删除的文档，以及用户所添加的新文档，追加到索引中。
+  5.git commit -a -m "保存develop分支"//只将所有被修改或者已删除的且已经被git管理的文档提交到仓库中，并描述提交信息。
+  6.git push origin develop//把本地文件就提交到了远程develop分支上
+</code></pre>
 </div>
 
 </p>
