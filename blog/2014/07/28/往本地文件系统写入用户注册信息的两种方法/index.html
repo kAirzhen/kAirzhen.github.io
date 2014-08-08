@@ -42,23 +42,23 @@
   </header>
 
 
-<div class="entry-content"><p>&ndash;(IBAction)userRegister:(id)sender{</p>
+<div class="entry-content"><hr />
+
+<p>&ndash;(IBAction)userRegister:(id)sender{</p>
 
 <p>NSString*userRecord = [NSString stringWithFormat:@“\n%@,%@,%@&ldquo;,</p>
 
-<pre><code>               self.userName.text,
+<p>   self.userName.text,</p>
 
-               self.password.text,
+<p>   self.password.text,</p>
 
-               self.email.text];
-</code></pre>
+<p>   self.email.text];</p>
 
 <p>NSString *docDir = [NSSearchPathForDirectoriesInDomains,</p>
 
-<pre><code>                            NSDocumentDirectory,
+<p>   NSDocumentDirectory,</p>
 
-                            NSUserDomainMask,YES)objectAtIndex: 0
-</code></pre>
+<p>   NSUserDomainMask,YES)objectAtIndex: 0</p>
 
 <p>];</p>
 
@@ -92,17 +92,26 @@ else{</p>
 
 <p>self.password.text = @“&#8221;;
 self.email.text = @“&#8221;;
-}
-另外,还有一个辅助的方法 regSuccess,用来在屏幕上弹出用户注册成功的提示信息:
-&ndash;(void)regSuccess{
-  UIAlertView <em>alertDialog;
+}</p>
+
+<pre><code> 另外,还有一个辅助的方法 regSuccess,用来在屏幕上弹出用户注册成功的提示信息:
+</code></pre>
+
+<p>&ndash;(void)regSuccess{
+  UIAlertView *alertDialog;
   alertDialog = [[UIAlertView alloc]initWithTitle:@&ldquo;EntLib.com 电子图书管理系统&rdquo;       message:@&ldquo;注册成功!&rdquo;
   delegate:self
   cancelButtonTitle:@&ldquo;OK&rdquo;
   otherButtonTitles:nil];
-  [alertDialog show];}
-接下来,是一个 NSFileHandle 类的 fileHandleForUpdatingAtPath 方法,获取指定该文件的引用,更新该文件。跳到文件的末尾,调用 writeData 方法,将用户注册信息写入到文件中。NSFileHandle </em>fileHandle =[NSFileHandle fileHandleForUpdatingAtPath:us erFile];[fileHandle seekToEndOfFile];
-[fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding];[fileHandle closeFile];在文件写入完毕之后,调用 closeFile 方法关闭文件手柄。</p>
+  [alertDialog show];}</p>
+
+<pre><code>   接下来,是一个 NSFileHandle 类的 fileHandleForUpdatingAtPath 方法,获取指定该文件的引用,更新该文件。跳到文件的末尾,调用 writeData 方法,将用户注册信息写入到文件中。NSFileHandle *fileHandle =[NSFileHandle fileHandleForUpdatingAtPath:us erFile];[fileHandle seekToEndOfFile]; 
+</code></pre>
+
+<p>[fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding];[fileHandle closeFile];</p>
+
+<pre><code>   在文件写入完毕之后,调用 closeFile 方法关闭文件手柄。
+</code></pre>
 </div>
 
 </p>
@@ -163,7 +172,7 @@ self.email.text = @“&#8221;;
   
 </div>
  </p>
-<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« Calay和uiview</span></a>   <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.next.url%7D%7D"><span class="s1">如何在App中发送邮件 »</span></a> </p>
+<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« CALayer和UIView</span></a>   <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.next.url%7D%7D"><span class="s1">如何在App中发送邮件 »</span></a> </p>
 <p class="p1"></p>
 <h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times"><b>Comments</b></h1>
 <p class="p1"><div id="disqus_thread"></div>
@@ -215,7 +224,7 @@ var disqus_shortname = 'ksnowlv';
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (6)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (7)</a></li></ul>
 </section>
 <section>
   <h1>外部链接</h1>

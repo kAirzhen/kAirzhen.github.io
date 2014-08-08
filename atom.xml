@@ -4,7 +4,7 @@
   <title><![CDATA[kAir]]></title>
   <link href="http://kAirzhen.github.io/atom.xml" rel="self"/>
   <link href="http://kAirzhen.github.io/"/>
-  <updated>2014-08-07T20:56:07+08:00</updated>
+  <updated>2014-08-08T22:04:05+08:00</updated>
   <id>http://kAirzhen.github.io/</id>
   <author>
     <name><![CDATA[贞]]></name>
@@ -35,14 +35,15 @@
     <link href="http://kAirzhen.github.io/blog/2014/08/06/%E5%A4%96%E9%83%A8%E5%8C%96%E8%A1%A8%E6%95%B0%E6%8D%AE%E4%B9%8BProperty+List/"/>
     <updated>2014-08-06T20:48:00+08:00</updated>
     <id>http://kAirzhen.github.io/blog/2014/08/06/外部化表数据之Property List</id>
-    <content type="html"><![CDATA[<p>将静态数据从代码中分离出来是一个很好的做法。
+    <content type="html"><![CDATA[<pre><code>将静态数据从代码中分离出来是一个很好的做法。
 假设让需要添加100多个新数据到应用程序中,需要返回源代码,将新的数据添加到初始化代码中，这无疑使得代码看起来表冗长。同时编辑这些代码并不简单,并且必须要严格遵守Objective-C语法，更改代码可能会引入其他错误。最好是将数据和代码逻辑分离。
 Property List 提供了一个方便的方法来存放简单的结构数据,通常为XML格式。但是不能使用Property List 存放所有类型的数据。
 下面开始转换数据为 Property List：
 首先创建一个空的Property List 文件。
 其次在Property List中添加n个数据数组，并添加完成了所有数组元素。
 最后Property List中读取内容相当简单iOS SDK已经有内置的方法来处理该文件的读写操作。
-Property List并不是存放表数据的最好方法，还有很多其他方法。</p>
+Property List并不是存放表数据的最好方法，还有很多其他方法。
+</code></pre>
 ]]></content>
   </entry>
   
@@ -51,9 +52,14 @@ Property List并不是存放表数据的最好方法，还有很多其他方法�
     <link href="http://kAirzhen.github.io/blog/2014/08/06/%E7%BC%96%E5%86%99HTML%E9%82%AE%E4%BB%B6/"/>
     <updated>2014-08-06T20:24:00+08:00</updated>
     <id>http://kAirzhen.github.io/blog/2014/08/06/编写HTML邮件</id>
-    <content type="html"><![CDATA[<p>在 SimpleEmail App 中仅仅支持文本邮件。通过更改 setMessageBody 方法中的 isHTML 参数 – 从 N 更改为 Y,App 将支持 HTML 邮件。再次更 改 showEmail 方法的代码如下:&ndash; (IBAction)showEmail:(id)sender {// Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;; // Email Content￼NSString </em>messageBody = @&ldquo;<h1>Test iOS Programming!</h1>&rdquo;; NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#115;&#x75;&#112;&#x70;&#111;&#114;&#116;&#x40;&#x61;&#x70;&#112;&#99;&#111;&#100;&#x61;&#x2e;&#99;&#111;&#109;">&#115;&#x75;&#x70;&#112;&#111;&#x72;&#116;&#64;&#97;&#112;&#112;&#99;&#111;&#x64;&#97;&#x2e;&#99;&#111;&#x6d;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:YES];
-[mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}编译并再次运行 App。经过一些简单的更改,SimpleEmail 应用程序现在提供了HTML 支持了!
-注：Xcode不知道 MFMailComposeViewController 是什么。尽管MFMailComposeViewController 是iOS SDK内置的控制器,但是需要在项目中嵌入必要的框架MessageUI.framework。否则编译时会报错。</p>
+    <content type="html"><![CDATA[<hr />
+
+<pre><code>在 SimpleEmail App 中仅仅支持文本邮件。通过更改 setMessageBody 方法中的 isHTML 参数 – 从 N 更改为 Y,App 将支持 HTML 邮件。再次更 改 showEmail 方法的代码如下:
+     -(IBAction)showEmail:(id)sender {// Email Subject     NSString *emailTitle = @"Test Email"; // Email Content     ￼NSString *messageBody = @"&lt;h1&gt;Test iOS Programming!&lt;/h1&gt;";      NSArray *toRecipents = [NSArray arrayWithObject:@"support@appcoda.com"];     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];     mc.mailComposeDelegate = self;     [mc setSubject:emailTitle];     [mc setMessageBody:messageBody isHTML:YES]; 
+ [mc setToRecipients:toRecipents];     [self presentViewController:mc animated:YES completion:NULL];    }
+</code></pre>
+
+<p>   &hellip;.编译并再次运行 App。经过一些简单的更改,SimpleEmail 应用程序现在提供了HTML 支持了!注：Xcode不知道 MFMailComposeViewController 是什么。尽管MFMailComposeViewController 是iOS SDK内置的控制器,但是需要在项目中嵌入必要的框架MessageUI.framework。否则编译时会报错。</p>
 ]]></content>
   </entry>
   
@@ -62,13 +68,20 @@ Property List并不是存放表数据的最好方法，还有很多其他方法�
     <link href="http://kAirzhen.github.io/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <updated>2014-08-06T20:04:00+08:00</updated>
     <id>http://kAirzhen.github.io/blog/2014/08/06/如何在App中发送邮件</id>
-    <content type="html"><![CDATA[<p>目标：App 实现的功能是 – 当用户轻拍 Contact Us 按钮时,将弹出 email 界面。</p>
+    <content type="html"><![CDATA[<hr />
 
-<p>首先，interface builder 界面,连接按钮和 action 方法。命名方法名称 – showEmail, 保留 Event 事件为 Touch Up Inside。
+<p>  &hellip; 目标：App 实现的功能是 – 当用户轻拍 Contact Us 按钮时,将弹出 email 界面。
+首先，interface builder 界面,连接按钮和 action 方法。命名方法名称 – showEmail, 保留 Event 事件为 Touch Up Inside。
 然后，实现 Email 接口，接着,引入 MessageUI.h 头文件,实现在 SimpleEmailViewController.h 中 MFMailComposeViewControllerDelegate 委托。
 代码实现：</p>
 
-<h1>import &lt;UIKit/UIKit.h>#import &lt;MessageUI/MessageUI.h>@interface SimpleEmailViewController : UIViewController <MFMailComposeViewControllerDelegate> // Add the delegate &ndash; (IBAction)showEmail:(id)sender;@end选择 SimpleEmailViewController.m 文件,实现 showEmail 方法和MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:￼- (IBAction)showEmail:(id)sender { // Email SubjectNSString <em>emailTitle = @&ldquo;Test Email&rdquo;;NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;NSArray <em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#115;&#117;&#112;&#x70;&#111;&#114;&#116;&#x40;&#x61;&#x70;&#x70;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#x6d;">&#115;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#64;&#97;&#x70;&#x70;&#x63;&#x6f;&#x64;&#97;&#x2e;&#x63;&#111;&#x6d;</a>&rdquo;];MFMailComposeViewController </em>mc = [[MFMailComposeViewController alloc] init];mc.mailComposeDelegate = self;[mc setSubject:emailTitle];[mc setMessageBody:messageBody isHTML:NO]; [mc setToRecipients:toRecipents];[self presentViewController:mc animated:YES completion:NULL];}//在屏幕上显示 email 界面- (void) mailComposeController:(MFMailComposeViewController <em>)controller￼didFinishWithResult:(MFMailComposeResult)result error:(NSError </em>)error {switch (result) {case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);break;case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);break;case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);break;case MFMailComposeResultFailed:NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;default: break;}[self dismissViewControllerAnimated:YES completion:NULL];}代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</h1>
+<hr />
+
+<pre><code> #import &lt;UIKit/UIKit.h&gt;     #import &lt;MessageUI/MessageUI.h&gt;     @interface SimpleEmailViewController : UIViewController     &lt;MFMailComposeViewControllerDelegate&gt; // Add the delegate - (IBAction)showEmail:(id)sender;     @end
+ 选择 SimpleEmailViewController.m 文件,实现 showEmail 方法MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:
+</code></pre>
+
+<p><em><em><em>     ￼-(IBAction)showEmail:(id)sender { // Email Subject     NSString </em>emailTitle = @&ldquo;Test Email&rdquo;;     NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;     NSArray </em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x73;&#117;&#x70;&#x70;&#x6f;&#x72;&#x74;&#64;&#97;&#112;&#112;&#99;&#x6f;&#100;&#97;&#x2e;&#x63;&#111;&#109;">&#115;&#117;&#x70;&#x70;&#111;&#x72;&#116;&#64;&#x61;&#x70;&#x70;&#99;&#111;&#x64;&#97;&#46;&#99;&#x6f;&#x6d;</a>&rdquo;];     MFMailComposeViewController <em>mc = [[MFMailComposeViewController alloc] init];     mc.mailComposeDelegate = self;     [mc setSubject:emailTitle];     [mc setMessageBody:messageBody isHTML:NO];      [mc setToRecipients:toRecipents];     [self presentViewController:mc animated:YES completion:NULL];     }//在屏幕上显示 email 界面     &ndash; (void) mailComposeController:(MFMailComposeViewController </em>)controller     ￼didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {     switch (result) {     case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);     break;     case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);     break;     case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);     break;     case MFMailComposeResultFailed:     NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;     default: break;     }     [self dismissViewControllerAnimated:YES completion:NULL];     }&hellip;代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</p>
 ]]></content>
   </entry>
   
@@ -77,23 +90,23 @@ Property List并不是存放表数据的最好方法，还有很多其他方法�
     <link href="http://kAirzhen.github.io/blog/2014/07/28/%E5%BE%80%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%86%99%E5%85%A5%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%BF%A1%E6%81%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
     <updated>2014-07-28T22:13:00+08:00</updated>
     <id>http://kAirzhen.github.io/blog/2014/07/28/往本地文件系统写入用户注册信息的两种方法</id>
-    <content type="html"><![CDATA[<p>&ndash;(IBAction)userRegister:(id)sender{</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>&ndash;(IBAction)userRegister:(id)sender{</p>
 
 <p>NSString*userRecord = [NSString stringWithFormat:@“\n%@,%@,%@&ldquo;,</p>
 
-<pre><code>               self.userName.text,
+<p>   self.userName.text,</p>
 
-               self.password.text,
+<p>   self.password.text,</p>
 
-               self.email.text];
-</code></pre>
+<p>   self.email.text];</p>
 
 <p>NSString *docDir = [NSSearchPathForDirectoriesInDomains,</p>
 
-<pre><code>                            NSDocumentDirectory,
+<p>   NSDocumentDirectory,</p>
 
-                            NSUserDomainMask,YES)objectAtIndex: 0
-</code></pre>
+<p>   NSUserDomainMask,YES)objectAtIndex: 0</p>
 
 <p>];</p>
 
@@ -127,34 +140,38 @@ else{</p>
 
 <p>self.password.text = @“&#8221;;
 self.email.text = @“&#8221;;
-}
-另外,还有一个辅助的方法 regSuccess,用来在屏幕上弹出用户注册成功的提示信息:
-&ndash;(void)regSuccess{
-  UIAlertView <em>alertDialog;
+}</p>
+
+<pre><code> 另外,还有一个辅助的方法 regSuccess,用来在屏幕上弹出用户注册成功的提示信息:
+</code></pre>
+
+<p>&ndash;(void)regSuccess{
+  UIAlertView *alertDialog;
   alertDialog = [[UIAlertView alloc]initWithTitle:@&ldquo;EntLib.com 电子图书管理系统&rdquo;       message:@&ldquo;注册成功!&rdquo;
   delegate:self
   cancelButtonTitle:@&ldquo;OK&rdquo;
   otherButtonTitles:nil];
-  [alertDialog show];}
-接下来,是一个 NSFileHandle 类的 fileHandleForUpdatingAtPath 方法,获取指定该文件的引用,更新该文件。跳到文件的末尾,调用 writeData 方法,将用户注册信息写入到文件中。NSFileHandle </em>fileHandle =[NSFileHandle fileHandleForUpdatingAtPath:us erFile];[fileHandle seekToEndOfFile];
-[fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding];[fileHandle closeFile];在文件写入完毕之后,调用 closeFile 方法关闭文件手柄。</p>
+  [alertDialog show];}</p>
+
+<pre><code>   接下来,是一个 NSFileHandle 类的 fileHandleForUpdatingAtPath 方法,获取指定该文件的引用,更新该文件。跳到文件的末尾,调用 writeData 方法,将用户注册信息写入到文件中。NSFileHandle *fileHandle =[NSFileHandle fileHandleForUpdatingAtPath:us erFile];[fileHandle seekToEndOfFile]; 
+</code></pre>
+
+<p>[fileHandle writeData:[userRecord dataUsingEncoding:NSUTF8StringEncoding];[fileHandle closeFile];</p>
+
+<pre><code>   在文件写入完毕之后,调用 closeFile 方法关闭文件手柄。
+</code></pre>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Calay和uiview]]></title>
+    <title type="html"><![CDATA[CALayer和UIView]]></title>
     <link href="http://kAirzhen.github.io/blog/2014/07/22/CALay%E5%92%8CUIView/"/>
-    <updated>2014-07-22T00:00:00+08:00</updated>
+    <updated>2014-07-22T23:49:00+08:00</updated>
     <id>http://kAirzhen.github.io/blog/2014/07/22/CALay和UIView</id>
     <content type="html"><![CDATA[<hr />
 
-<p>layout: post
-title: &ldquo;CALayer和UIView&rdquo;
-date: 2014-07-22 23:49
-comments: true
-categories:
-&mdash;-学习
-两者最大的区别是,图层不会直接渲染到屏幕上，UIView是iOS系统中界面元素的基础，所有的界面元素都是继承自它。它本身完全是由CoreAnimation来实现的。它真正的绘图部分，是由一个CALayer类来管理。UIView本身更像是一个CALayer的管理器。一个UIView上可以有n个CALayer，每个layer显示一种东西，增强UIView的展现能力。</p>
+<pre><code>  两者最大的区别是,图层不会直接渲染到屏幕上，UIView是iOS系统中界面元素的基础，所有的界面元素都是继承自它。它本身完全是由CoreAnimation来实现的。它真正的绘图部分，是由一个CALayer类来管理。UIView本身更像是一个CALayer的管理器。一个UIView上可以有n个CALayer，每个layer显示一种东西，增强UIView的展现能力。
+</code></pre>
 ]]></content>
   </entry>
   
@@ -163,7 +180,9 @@ categories:
     <link href="http://kAirzhen.github.io/blog/2014/07/19/hello/"/>
     <updated>2014-07-19T16:05:00+08:00</updated>
     <id>http://kAirzhen.github.io/blog/2014/07/19/hello</id>
-    <content type="html"><![CDATA[<p>hello！</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>   hello！Testing~</p>
 ]]></content>
   </entry>
   
