@@ -17,7 +17,7 @@
 <p class="p1">
   <header>
     
-      <h1 class="entry-title">如何在App中发送邮件</h1>
+      <h1 class="entry-title">形象化理解assign</h1>
     
     
       <p class="meta">
@@ -33,7 +33,7 @@
   
 
 
-<time datetime="2014-08-06T20:04:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time>
+<time datetime="2014-09-02T13:13:00+08:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -44,18 +44,46 @@
 
 <div class="entry-content"><hr />
 
-<p>  &hellip; 目标：App 实现的功能是 – 当用户轻拍 Contact Us 按钮时,将弹出 email 界面。
-首先，interface builder 界面,连接按钮和 action 方法。命名方法名称 – showEmail, 保留 Event 事件为 Touch Up Inside。
-然后，实现 Email 接口，接着,引入 MessageUI.h 头文件,实现在 SimpleEmailViewController.h 中 MFMailComposeViewControllerDelegate 委托。
-代码实现：</p>
+<p><strong>举个例子</strong>:</p>
 
-<hr />
-
-<pre><code> #import &lt;UIKit/UIKit.h&gt;     #import &lt;MessageUI/MessageUI.h&gt;     @interface SimpleEmailViewController : UIViewController     &lt;MFMailComposeViewControllerDelegate&gt; // Add the delegate - (IBAction)showEmail:(id)sender;     @end
- 选择 SimpleEmailViewController.m 文件,实现 showEmail 方法MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:
+<pre><code>NSString *houseOfMM = [[NSString alloc] initWithString:'装梵几的三室两厅'];
 </code></pre>
 
-<p><em><em><em>     ￼-(IBAction)showEmail:(id)sender { // Email Subject     NSString </em>emailTitle = @&ldquo;Test Email&rdquo;;     NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;     NSArray </em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x73;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#x40;&#97;&#x70;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;">&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#x74;&#64;&#97;&#112;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;</a>&rdquo;];     MFMailComposeViewController <em>mc = [[MFMailComposeViewController alloc] init];     mc.mailComposeDelegate = self;     [mc setSubject:emailTitle];     [mc setMessageBody:messageBody isHTML:NO];      [mc setToRecipients:toRecipents];     [self presentViewController:mc animated:YES completion:NULL];     }//在屏幕上显示 email 界面     &ndash; (void) mailComposeController:(MFMailComposeViewController </em>)controller     ￼didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {     switch (result) {     case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);     break;     case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);     break;     case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);     break;     case MFMailComposeResultFailed:     NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;     default: break;     }     [self dismissViewControllerAnimated:YES completion:NULL];     }&hellip;代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</p>
+<p><strong>上面一段代码会执行以下两个动作:</strong></p>
+
+<ol>
+<li>在堆上分配一段内存用来存储@&lsquo; 装梵几的三室两厅 &rsquo; ,比如:内存地址为 0X1111  内容为 &lsquo; 装梵几的三室两厅&rsquo; ，</li>
+<li>在栈上分配一段内存用来存储 houseForWife ,比如:地址为 0XAAAA  内容自然为 0X1111</li>
+</ol>
+
+
+<p><strong>下面分别看下(assign,retain,copy):</strong></p>
+
+<ol>
+<li>assign的情况: NSString  * myHouse  = [ houseOfMM   assign ];<br/>
+此时 myHouse 和 houseOfMM 完全相同,地址都是 0XAAAA  ,内容为 0X1111  ,即 myHouse 只是 houseOfMM 的别名,对任何一个操作就等于对另一个操作。因此 retainCount 不需要增加.(同进同出，关系好，一把钥匙，给我拿着)</li>
+<li>retain的情况： NSString  *  myHouse  = [ houseOfMM   retain ];<br/>
+此时 myHouse 的地址不再为 0XAAAA ,可能为 0XAABB ,但是内容依然为 0X1111 .因此 myHouse 和 houseOfMM 都可以管理&#8217; 装梵几的三室两厅 &lsquo;所在的内存。因此  retainCount 需要增加1.（有些独立，各自进出，两把钥匙）</li>
+<li>copy的情况： NSString  *  myHouse  = [ houseOfMM   copy ];<br/>
+此时会在堆上重新开辟一段内存存放@&lsquo;装梵几的三室两厅&rsquo;,比如0X1122,内容为@&lsquo;装梵几的三室两厅&rsquo;,同时会在栈上为myHouse分配空间,比如地址:0XAACC,内容为0X1122,因此retainCount增加1供myHouse来管理0X1122这段内存.(两套@&lsquo;装梵几的三室两厅&#8217;，条件好，分居了，房子一人一套，所以钥匙一人一把。)</li>
+</ol>
+
+
+<p> <strong><em>什么时候用assign,当然是破房子，简装的房子拉</em></strong></p>
+
+<p>基础类型（简单类型，原子类型）：NSInteger,CGPoint,CGFloat,C数据类型（int,float,double,char等）</p>
+
+<p> <strong><em>什么时候用copy</em></strong></p>
+
+<p>含有可深拷贝的mutable子类的类，如NSArray，NSSet，NSDictionary，NSData的，NSCharacterSet，NSIndexSet，NSString
+(可深度拷贝的房子)
+但是NSMutableArray这样的不可以，Mutable的不能用copy,不然初始化会有问题。切记</p>
+
+<p> <strong><em>什么时候用retain</em></strong></p>
+
+<p>其他NSObject和其子类对象好嘛 (大多数)</p>
+
+<h5>ARC中的strong相当于非ARC中的retain，ARC来了以后多搞一把钥匙就strong了啦。</h5>
 </div>
 
 </p>
@@ -75,7 +103,7 @@
   
 
 
-<time datetime="2014-08-06T20:04:00+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2014</time> 
+<time datetime="2014-09-02T13:13:00+08:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2014</time> 
 
 <span class="categories">
   
@@ -116,7 +144,7 @@
   
 </div>
  </p>
-<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« 往本地文件系统写入用户注册信息的两种方法</span></a>   <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.next.url%7D%7D"><span class="s1">编写html邮件 »</span></a> </p>
+<p class="p2"> <a href="file:///Users/snow3121/Desktop/MyBlog/blog/source/_layouts/%7B%7Bpage.previous.url%7D%7D"><span class="s1">« git创建远程分支</span></a>  </p>
 <p class="p1"></p>
 <h1 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times"><b>Comments</b></h1>
 <p class="p1"><div id="disqus_thread"></div>
