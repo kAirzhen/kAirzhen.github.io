@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 学习 | kAir]]></title>
   <link href="http://kAirzhen.github.io/blog/categories/xue-xi/atom.xml" rel="self"/>
   <link href="http://kAirzhen.github.io/"/>
-  <updated>2014-09-03T13:52:16+08:00</updated>
+  <updated>2014-09-03T14:11:40+08:00</updated>
   <id>http://kAirzhen.github.io/</id>
   <author>
     <name><![CDATA[贞]]></name>
@@ -14,13 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[OC基础之NSSet、NSMutableSet、NSCountedSet等]]></title>
+    <title type="html"><![CDATA[OC基础之NSSet，NSMutableSet,NSCountedSet等]]></title>
     <link href="http://kAirzhen.github.io/blog/2014/09/03/OC-zhong-nsset-deng-ji-he-lei-yong-fa/"/>
     <updated>2014-09-03T12:27:00+08:00</updated>
     <id>http://kAirzhen.github.io/blog/2014/09/03/OC-zhong-nsset-deng-ji-he-lei-yong-fa</id>
-    <content type="html"><![CDATA[<hr />
-
-<h4><strong>集合的特点：集合是无序性，集合中的元素都具有互异性</strong></h4>
+    <content type="html"><![CDATA[<h4>集合的特点：集合是无序性，集合中的元素都具有互异性</h4>
 
 <p><strong>NSSet</strong>是一种基础集合。<br/>
   例：</p>
@@ -38,25 +36,23 @@ NSLog(@"originlist = %@",shoppinglist);
 NSLog(@"mutablelist = %@",mutableList);
 </code></pre>
 
-<p>显示结果：
-````originlist = {(</p>
+<p>显示结果：</p>
 
-<pre><code>bread,
+<pre><code>originlist = {(
+bread,
 bananas,
 milk,
 pen
-</code></pre>
+)}  
 
-<p>)} ````<br/>
-``````mutablelist = {(</p>
 
-<pre><code>bread,
+  mutablelist = {(
+bread,
 meat,
 bananas,
 pen
+)}
 </code></pre>
-
-<p>)}``````</p>
 
 <p><strong>NSCountedSet</strong>是一种可计数集合，也可以添加，删除元素。如果添加的对象会增加对象在集合中出现的次数，可对该元素计数+1。如果移除的对象在集合中有重复，只能移除一个对象。
 例：</p>
@@ -74,10 +70,12 @@ NSLog(@"milkCount = %d,mcount = %d",milkCount,mcount);
 NSLog(@"csetofnumber = %@", cSetOfNumber);
 </code></pre>
 
-<p>显示结果：
-<code>csetofnumber = &lt;NSCountedSet: 0x8f60be0&gt; (bread [1], bananas [1], milk [1], pen [1])</code>  <br/>
-<code>milkCount = 2,mcount = 4</code>  <br/>
-<code>csetofnumber = &lt;NSCountedSet: 0x8f60be0&gt; (bread [1], egg [1], bananas [1], milk [2])</code></p>
+<p>显示结果：</p>
+
+<pre><code>csetofnumber = &lt;NSCountedSet: 0x8f60be0&gt; (bread [1], bananas [1], milk [1], pen [1])  
+milkCount = 2,mcount = 4    
+csetofnumber = &lt;NSCountedSet: 0x8f60be0&gt; (bread [1], egg [1], bananas [1], milk [2])
+</code></pre>
 
 <p>想让集合有序可以使用<strong>NSOrderedSet</strong>和<strong>NSMutableOrderedSet</strong>，顾名思义这两种集合都是有序的，前者不可变，后者添加对象，移除对象，交换对象顺序。
 例：</p>
@@ -91,34 +89,29 @@ NSMutableOrderedSet* muSetOfNumber = [NSMutableOrderedSet orderedSetWithArray:@[
 NSLog(@"muSerOfNumber = %@",muSetOfNumber);
 </code></pre>
 
-<p>显示结果：
-````setofnumer ={(</p>
+<p>显示结果：</p>
 
-<pre><code>1,
+<pre><code>setofnumer ={(
+1,
 7,
 3,
 0,
 6,
 9
-</code></pre>
+)}
 
-<p>)}
-````</p>
 
-<p>````muSerOfNumber = {(</p>
-
-<pre><code>1,
+muSerOfNumber = {(
+1,
 0,
 7,
 6,
 9,
 5
+)}
 </code></pre>
 
-<p>)}
-````</p>
-
-<h4><strong>以上所有集合都具有显示的唯一性，集合内相同的元素都识别为同一元素。</strong></h4>
+<h4>以上所有集合都具有显示的唯一性，集合内相同的元素都识别为同一元素。</h4>
 ]]></content>
   </entry>
   

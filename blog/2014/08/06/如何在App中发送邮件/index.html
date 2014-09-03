@@ -55,7 +55,7 @@
  选择 SimpleEmailViewController.m 文件,实现 showEmail 方法MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:
 </code></pre>
 
-<p><em><em><em>     ￼-(IBAction)showEmail:(id)sender { // Email Subject     NSString </em>emailTitle = @&ldquo;Test Email&rdquo;;     NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;     NSArray </em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x73;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#x40;&#97;&#x70;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;">&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#x74;&#64;&#97;&#112;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;</a>&rdquo;];     MFMailComposeViewController <em>mc = [[MFMailComposeViewController alloc] init];     mc.mailComposeDelegate = self;     [mc setSubject:emailTitle];     [mc setMessageBody:messageBody isHTML:NO];      [mc setToRecipients:toRecipents];     [self presentViewController:mc animated:YES completion:NULL];     }//在屏幕上显示 email 界面     &ndash; (void) mailComposeController:(MFMailComposeViewController </em>)controller     ￼didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {     switch (result) {     case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);     break;     case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);     break;     case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);     break;     case MFMailComposeResultFailed:     NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;     default: break;     }     [self dismissViewControllerAnimated:YES completion:NULL];     }&hellip;代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</p>
+<p><em><em><em>     ￼-(IBAction)showEmail:(id)sender { // Email Subject     NSString </em>emailTitle = @&ldquo;Test Email&rdquo;;     NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;     NSArray </em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#115;&#x75;&#112;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x61;&#112;&#112;&#99;&#111;&#100;&#97;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#x40;&#97;&#x70;&#x70;&#x63;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;</a>&rdquo;];     MFMailComposeViewController <em>mc = [[MFMailComposeViewController alloc] init];     mc.mailComposeDelegate = self;     [mc setSubject:emailTitle];     [mc setMessageBody:messageBody isHTML:NO];      [mc setToRecipients:toRecipents];     [self presentViewController:mc animated:YES completion:NULL];     }//在屏幕上显示 email 界面     &ndash; (void) mailComposeController:(MFMailComposeViewController </em>)controller     ￼didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {     switch (result) {     case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);     break;     case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);     break;     case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);     break;     case MFMailComposeResultFailed:     NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;     default: break;     }     [self dismissViewControllerAnimated:YES completion:NULL];     }&hellip;代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</p>
 </div>
 
 </p>
@@ -145,6 +145,10 @@ var disqus_shortname = 'ksnowlv';
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/03/OC-zhong-nsset-deng-ji-he-lei-yong-fa/">OC基础之NSSet，NSMutableSet,NSCountedSet等</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/02/assign%2Ccopy%2Cstrong%E5%BD%A2%E8%B1%A1%E5%8C%96/">形象化理解assign</a>
       </li>
     
@@ -160,15 +164,11 @@ var disqus_shortname = 'ksnowlv';
         <a href="/blog/2014/08/06/%E7%BC%96%E5%86%99HTML%E9%82%AE%E4%BB%B6/">编写html邮件</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/08/06/%E5%A6%82%E4%BD%95%E5%9C%A8App%E4%B8%AD%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/">如何在App中发送邮件</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>分类</h1>
-    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (8)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/rake/'>rake (2)</a></li><li><a href='/blog/categories/xue-xi/'>学习 (9)</a></li></ul>
 </section>
 <section>
   <h1>外部链接</h1>

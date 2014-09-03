@@ -4,7 +4,7 @@
   <title><![CDATA[kAir]]></title>
   <link href="http://kAirzhen.github.io/atom.xml" rel="self"/>
   <link href="http://kAirzhen.github.io/"/>
-  <updated>2014-09-02T13:44:17+08:00</updated>
+  <updated>2014-09-03T14:11:40+08:00</updated>
   <id>http://kAirzhen.github.io/</id>
   <author>
     <name><![CDATA[贞]]></name>
@@ -12,6 +12,108 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OC基础之NSSet，NSMutableSet,NSCountedSet等]]></title>
+    <link href="http://kAirzhen.github.io/blog/2014/09/03/OC-zhong-nsset-deng-ji-he-lei-yong-fa/"/>
+    <updated>2014-09-03T12:27:00+08:00</updated>
+    <id>http://kAirzhen.github.io/blog/2014/09/03/OC-zhong-nsset-deng-ji-he-lei-yong-fa</id>
+    <content type="html"><![CDATA[<h4>集合的特点：集合是无序性，集合中的元素都具有互异性</h4>
+
+<p><strong>NSSet</strong>是一种基础集合。<br/>
+  例：</p>
+
+<pre><code>NSSet* shoppinglist = [[NSSet alloc] initWithObjects:@"milk",@"pen",@"bananas",@"milk",@"bread", nil];
+</code></pre>
+
+<p><strong>NSMutableSet</strong>是一种可变集合，可以添加，删除对象。如果添加的对象在集合中已存在，则不添加，若移除的元素在集合中存在多个，移除会将所有相同的对象全部移除。      <br/>
+例：</p>
+
+<pre><code> NSMutableSet* mutableList = [[NSMutableSet alloc] initWithSet:shoppinglist];
+[mutableList addObject:@"meat"];            
+[mutableList removeObject:@"milk"];   
+NSLog(@"originlist = %@",shoppinglist);
+NSLog(@"mutablelist = %@",mutableList);
+</code></pre>
+
+<p>显示结果：</p>
+
+<pre><code>originlist = {(
+bread,
+bananas,
+milk,
+pen
+)}  
+
+
+  mutablelist = {(
+bread,
+meat,
+bananas,
+pen
+)}
+</code></pre>
+
+<p><strong>NSCountedSet</strong>是一种可计数集合，也可以添加，删除元素。如果添加的对象会增加对象在集合中出现的次数，可对该元素计数+1。如果移除的对象在集合中有重复，只能移除一个对象。
+例：</p>
+
+<pre><code>NSSet* shoppinglist = [[NSSet alloc] initWithObjects:@"milk",@"pen",@"bananas",@"milk",@"bread", nil];
+NSCountedSet* cSetOfNumber = [NSCountedSet  setWithSet:shoppinglist];
+NSLog(@"csetofnumber = %@", cSetOfNumber);
+NSInteger mcount = [cSetOfNumber count];
+[cSetOfNumber addObject:@"egg"];
+[cSetOfNumber removeObject:@"pen"];
+[cSetOfNumber addObject:@"milk"];
+NSInteger milkCount = [cSetOfNumber countForObject:@"milk"];
+mcount = [cSetOfNumber count];
+NSLog(@"milkCount = %d,mcount = %d",milkCount,mcount);
+NSLog(@"csetofnumber = %@", cSetOfNumber);
+</code></pre>
+
+<p>显示结果：</p>
+
+<pre><code>csetofnumber = &lt;NSCountedSet: 0x8f60be0&gt; (bread [1], bananas [1], milk [1], pen [1])  
+milkCount = 2,mcount = 4    
+csetofnumber = &lt;NSCountedSet: 0x8f60be0&gt; (bread [1], egg [1], bananas [1], milk [2])
+</code></pre>
+
+<p>想让集合有序可以使用<strong>NSOrderedSet</strong>和<strong>NSMutableOrderedSet</strong>，顾名思义这两种集合都是有序的，前者不可变，后者添加对象，移除对象，交换对象顺序。
+例：</p>
+
+<pre><code>NSOrderedSet* setofnumber = [NSOrderedSet orderedSetWithArray:@[@1,@7,@3,@0,@6,@9]];
+NSLog(@"setofnumer =%@",setofnumber);
+NSMutableOrderedSet* muSetOfNumber = [NSMutableOrderedSet orderedSetWithArray:@[@1,@7,@3,@0,@6,@9]];
+[muSetOfNumber addObject:@5];
+[muSetOfNumber removeObject:@3];
+[muSetOfNumber exchangeObjectAtIndex:1 withObjectAtIndex:2];
+NSLog(@"muSerOfNumber = %@",muSetOfNumber);
+</code></pre>
+
+<p>显示结果：</p>
+
+<pre><code>setofnumer ={(
+1,
+7,
+3,
+0,
+6,
+9
+)}
+
+
+muSerOfNumber = {(
+1,
+0,
+7,
+6,
+9,
+5
+)}
+</code></pre>
+
+<h4>以上所有集合都具有显示的唯一性，集合内相同的元素都识别为同一元素。</h4>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[形象化理解assign]]></title>
@@ -141,7 +243,7 @@ Property List并不是存放表数据的最好方法，还有很多其他方法�
  选择 SimpleEmailViewController.m 文件,实现 showEmail 方法MFMailComposeViewControllerDelegate 委托。在实现文件中添加如下代码:
 </code></pre>
 
-<p><em><em><em>     ￼-(IBAction)showEmail:(id)sender { // Email Subject     NSString </em>emailTitle = @&ldquo;Test Email&rdquo;;     NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;     NSArray </em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x73;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#x40;&#97;&#x70;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;">&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#x74;&#64;&#97;&#112;&#112;&#99;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;</a>&rdquo;];     MFMailComposeViewController <em>mc = [[MFMailComposeViewController alloc] init];     mc.mailComposeDelegate = self;     [mc setSubject:emailTitle];     [mc setMessageBody:messageBody isHTML:NO];      [mc setToRecipients:toRecipents];     [self presentViewController:mc animated:YES completion:NULL];     }//在屏幕上显示 email 界面     &ndash; (void) mailComposeController:(MFMailComposeViewController </em>)controller     ￼didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {     switch (result) {     case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);     break;     case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);     break;     case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);     break;     case MFMailComposeResultFailed:     NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;     default: break;     }     [self dismissViewControllerAnimated:YES completion:NULL];     }&hellip;代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</p>
+<p><em><em><em>     ￼-(IBAction)showEmail:(id)sender { // Email Subject     NSString </em>emailTitle = @&ldquo;Test Email&rdquo;;     NSString </em>messageBody = @&ldquo;This programming is so fun!&rdquo;;     NSArray </em>toRecipents = [NSArray arrayWithObject:@&ldquo;<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#115;&#x75;&#112;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x61;&#112;&#112;&#99;&#111;&#100;&#97;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#x40;&#97;&#x70;&#x70;&#x63;&#x6f;&#x64;&#97;&#46;&#99;&#x6f;&#109;</a>&rdquo;];     MFMailComposeViewController <em>mc = [[MFMailComposeViewController alloc] init];     mc.mailComposeDelegate = self;     [mc setSubject:emailTitle];     [mc setMessageBody:messageBody isHTML:NO];      [mc setToRecipients:toRecipents];     [self presentViewController:mc animated:YES completion:NULL];     }//在屏幕上显示 email 界面     &ndash; (void) mailComposeController:(MFMailComposeViewController </em>)controller     ￼didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {     switch (result) {     case MFMailComposeResultCancelled: NSLog(@&ldquo;Mail cancelled&rdquo;);     break;     case MFMailComposeResultSaved: NSLog(@&ldquo;Mail saved&rdquo;);     break;     case MFMailComposeResultSent: NSLog(@&ldquo;Mail sent&rdquo;);     break;     case MFMailComposeResultFailed:     NSLog(@&ldquo;Mail sent failure: %@&rdquo;, [error localizedDescription]); break;     default: break;     }     [self dismissViewControllerAnimated:YES completion:NULL];     }&hellip;代码定义了邮件的主题,邮件内容和接收人，创建了内置的 MFMailComposeViewController 对象，MFMailComposeViewController 类提供了标准接口管理编辑和发送 email 消息。可以使用这个视图控制器在App 中显示一个标准的 email 视图。使用初始值,包括接收人邮件地 址,主题和邮件内容等等填充该视图的相关字段。</p>
 ]]></content>
   </entry>
   
