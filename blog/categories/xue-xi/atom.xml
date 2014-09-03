@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 学习 | kAir]]></title>
   <link href="http://kAirzhen.github.io/blog/categories/xue-xi/atom.xml" rel="self"/>
   <link href="http://kAirzhen.github.io/"/>
-  <updated>2014-09-03T13:32:28+08:00</updated>
+  <updated>2014-09-03T13:52:16+08:00</updated>
   <id>http://kAirzhen.github.io/</id>
   <author>
     <name><![CDATA[贞]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[OC基础之NSSet、NSMutableSet、NSCountedSet等]]></title>
-    <link href="http://kAirzhen.github.io/blog/2014/09/03/OC%E4%B8%ADNSSet%E7%AD%89%E9%9B%86%E5%90%88%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <link href="http://kAirzhen.github.io/blog/2014/09/03/OC-zhong-nsset-deng-ji-he-lei-yong-fa/"/>
     <updated>2014-09-03T12:27:00+08:00</updated>
-    <id>http://kAirzhen.github.io/blog/2014/09/03/OC中NSSet等集合的用法</id>
+    <id>http://kAirzhen.github.io/blog/2014/09/03/OC-zhong-nsset-deng-ji-he-lei-yong-fa</id>
     <content type="html"><![CDATA[<hr />
 
 <h4><strong>集合的特点：集合是无序性，集合中的元素都具有互异性</strong></h4>
